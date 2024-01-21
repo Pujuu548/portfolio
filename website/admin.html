@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./adminbeauty.css" />
+    <title>Disaster Management - Admin Panel</title>
+  </head>
+  <body>
+    <div class="admin-panel" id="admin-panel">
+      <div class="admin-options">
+        <h2>Admin Options</h2>
+        <ul>
+          <li>
+            <a href="#" onclick="showSection('add-ngo')">Add NGO Details</a>
+          </li>
+          <li>
+            <a href="#" onclick="showSection('daily-updates')">Daily Updates</a>
+          </li>
+        </ul>
+      </div>
+      <div class="admin-content">
+        <section id="add-ngo" class="admin-section">
+          <h3>Add NGO Details</h3>
+          <form onsubmit="addNgo(event)">
+            <label for="ngo-name">NGO Name:</label>
+            <input type="text" id="ngo-name" required />
+
+            <label for="ngo-description">Description:</label>
+            <textarea id="ngo-description" required></textarea>
+
+            <button type="submit">Add NGO</button>
+          </form>
+        </section>
+        <section id="daily-updates" class="admin-section">
+          <h3>Daily Updates</h3>
+          <form onsubmit="addUpdate(event)">
+            <label for="disaster-type">Disaster Type:</label>
+            <input type="text" id="disaster-type" required />
+
+            <label for="death-count">Number of Deaths:</label>
+            <input type="number" id="death-count" required />
+
+            <label for="update-description">Update Description:</label>
+            <textarea id="update-description" required></textarea>
+
+            <button type="submit">Submit Update</button>
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <div class="output-section">
+      <h2>Latest NGO Data</h2>
+      <div id="ngo-output"></div>
+
+      <h2>Latest Daily Updates</h2>
+      <div id="updates-output"></div>
+    </div>
+
+    <div class="navigation">
+      <a href="user.html">Switch to User View</a>
+    </div>
+
+    <!-- Include the JavaScript files -->
+    <script src="script.js"></script>
+  </body>
+</html>
