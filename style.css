@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+:root{
+    --primary-black:#000000;
+    --primary-white:#ffffff;
+    --primary-grey: #eeeeee;
+    --primary-blue: #7698f4;
+    --header-size : 12vh;
+    --hero-section: 60vh;
+}
+
+.main-container{
+    background: var(--primary-grey);
+    min-height: 100vh;
+}
+
+.container{
+    
+    width: 100%;
+    height: 100vh;
+    max-width: 1450px ;
+    margin: auto;
+    padding: 0 2rem 2rem 0;
+}
+
+header{
+    
+    height : var(--header-size);
+}
+
+.navbar{
+    
+    width: 100%;
+    height:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.list{
+    display: flex;
+    gap: 2rem;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+
+
+.hero-section{
+    
+    height : var(--hero-section);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+h1{
+    font-family: 'ADLaM Display', system-ui;
+    font-size: 2.8rem;
+    margin: .4rem 0;
+
+}
+
+.profile-container{
+    width: 20rem;
+    aspect-ratio: 1;
+    box-shadow: 0 5px 5px var(--primary-blue);
+    border-radius: 50%;
+    border: .2rem solid var(--primary-black);
+    background-image: url(images/about\ image.jpg);
+    background-position: center;
+    background-size: cover;
+    animation: 6s blob  infinite ease-in-out;
+    transition: all 2s ease-in-out;
+   
+    
+}
+.skill-list{
+    display: flex;
+    margin: 1.8rem 0  2.5rem 0;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+h3{
+    font-size: 1.1rem;
+}
+.logo{
+    font-size: 1.6rem;
+    font-weight:bold;
+}
+.navlink{
+    font-size: 1rem;
+    color: var(--primary-black);
+}
+.nav-btn{
+    background: var(--primary-black);
+    color: var(--primary-white);
+    padding: .7rem 1.1rem;
+    border-radius: .5rem;
+}
+.nav-btn:hover{
+    background: var(--primary-blue);
+    color: var(--primary-black);
+}
+.content{
+    
+    width: 100%;
+    max-width: 500px;
+    
+}
+
+.fa-brands{
+    color: var(--primary-black);
+    font-size: 1.4rem;
+}
+.skill{
+    background-color: var(--primary-white);
+    padding: .4rem .5rem;
+    border-radius: .6rem;
+
+}
+
+
+.project-scroller{
+    
+    height:calc(100vh - var(--header-size) - var(--hero-section));
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    
+}
+
+.project{
+    width: 20rem;
+    height: 11rem;
+    display: inline-block;
+    position: relative;
+    margin-right: 1rem;
+
+}
+.proj-btn{
+    background: var(--primary-blue);
+    color: var(--primary-black);
+    padding: .7rem 1.1rem;
+    border-radius: .5rem;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-300%);
+    transition: transform .3s  ease-in-out;
+    
+}
+.project:hover .proj-btn{
+    transform: translate(-50% , -50%);
+
+}
+
+.project::before{
+    content: "";
+    background: rgba(0, 0, 0, 0.514);
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+.project:hover{
+    opacity: 1;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.scroller{
+    display: inline-block;
+    animation: 10s scroll infinite linear;
+}
+
+.project-scroller:hover .scroller{
+    animation-play-state: paused;
+}
+
+.project-scroller::before,
+.project-scroller::after{
+    content: "";
+    position: absolute;
+    width: 8rem;
+    top: 0;
+    height: 11rem;
+    z-index: 2;
+}
+
+.project-scroller::before{
+    left: 0;
+    background: linear-gradient(to right , var(--primary-white) ,transparent);
+    position: absolute;
+
+}
+
+.project-scroller::after{
+    right: 0;
+    background: linear-gradient(to left , var(--primary-white) ,transparent);
+    position: absolute;
+
+}
+
+@keyframes scroll{
+    from{
+        transform: translateX(0);
+
+    }
+    to{
+        transform: translateX(-100%);
+
+    }
+}
+
+@keyframes blob{
+    0%, 100%{
+        border-radius:60% 40% 30% 70% / 60% 30% 70% 40%;
+
+    }
+    50%{
+        border-radius:30% 60% 70% 50% / 50% 60% 30% 40%;
+
+    }
+}
